@@ -1,0 +1,28 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomahawk-jupiter/To-Do-List.git"
+  },
+  "author": "Jupiter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomahawk-jupiter/To-Do-List/issues"
+  },
+  "homepage": "https://github.com/tomahawk-jupiter/To-Do-List#readme",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
