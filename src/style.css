@@ -4,7 +4,7 @@
 }
 
 * {
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 
 header {
@@ -55,4 +55,66 @@ main {
 .delete-icon {
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+
+.add-btn {
+  color: green;
+  font-size: 40px;
+  text-align: center;
+  width: 50px;
+}
+.add-btn:hover {
+  color: orange;
+}
+
+#add-project-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.project-form {
+  visibility: hidden;
+  background-color: white;
+  position: fixed;
+  left: 200px;
+  top: 100px;
+  border: solid 2px;
+  border-radius: 5px;
+}
+.project-form h4 {
+  margin: 0;
+  padding: 5px 5px 10px 5px;
+  border-bottom: solid 1px;
+}
+.form-group {
+  margin: 25px 0px;
+  padding: 5px 5px;
+}
+.btn-group {
+  padding: 5px 5px;
+}
+
+#add-task-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.task-form {
+  visibility: hidden;
+  background-color: white;
+  position: fixed;
+  right: 200px;
+  top: 100px;
+  border: solid 2px;
+  border-radius: 5px;
+  height: 275px;
+  padding: 0px 5px;
+}
+.form-group-task {
+  display: flex;
+  flex-direction: column;
+}
+.task-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
