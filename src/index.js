@@ -1,7 +1,11 @@
 import './style.css';
 import { taskMaker } from './task-maker';
 import { data } from './data.js';
-import { appendProjectToDom, taskContent, appendTaskToDOM } from './dom-methods';
+import {
+  appendProjectToDom,
+  taskContent,
+  appendTaskToDOM
+} from './dom-methods';
 
 // ==== INIT PROJECT FROM DATA =========
 
@@ -35,7 +39,6 @@ addProjectBtn.addEventListener('click', ()=> {
 submitProjectBtn.addEventListener('click', (e)=> {
   e.preventDefault();
   const projectInput = projectForm.querySelector('#form-p-name');
-  //console.log(value.value);
   if (!projectInput.value) {
     alert('Please give project a name.');
   } else {
@@ -81,14 +84,7 @@ closeTaskBtn.addEventListener('click', ()=> {
   taskForm.style.visibility = 'hidden';
 });
 
-// DELETE ICON ON EACH TASK
-const deleteTask = document.querySelector('.delete-icon');
 
-deleteTask.addEventListener('click', (e)=> {
-  console.log(e.target.parentNode);
-  const taskCard = e.target.parentNode;
-  taskCard.remove();
-});
 
 // =========== end of new task ==============
 

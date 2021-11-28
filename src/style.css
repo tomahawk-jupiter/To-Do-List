@@ -31,6 +31,9 @@ main {
   height: 100vh;
   /* grid-row: 2/3; */
 }
+.project-list li {
+  display: flex;
+}
 
 .task-container {
   width: 75vw;
