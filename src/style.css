@@ -1,35 +1,58 @@
 :root {
   /* put css variables here */
+  font-family: calibri, sans-serif;
 }
 
 * {
   border: solid 1px;
 }
 
-body {
+header {
+  /* height: 40px; */
+  display: flex;
+  align-items: center;
+}
+header .header {
+  margin: 5px 0px;
+  font-size: 40px;
+}
+header img {
+  /* width: 20px;
+  height: 20px; */
+  margin: 0px 20px 0px 5px;
+}
+
+main {
   display: flex;
 }
 
-.project-panel {
+.side-panel {
   width: 25vw;
   height: 100vh;
+  /* grid-row: 2/3; */
 }
 
-.todo-container {
+.task-container {
   width: 75vw;
   height: 100vh;
 }
-
-.item-card {
+.task-card {
   height: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 10px 50px;
 }
-
-.item-check {
+.check-circle {
   width: 20px;
   height: 20px;
   border: solid 1px;
   border-radius: 50px;
+}
+.task-title {
+  margin-right: auto;
+}
+.delete-icon {
+  width: 20px;
+  height: 20px;
 }
