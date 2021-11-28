@@ -7,26 +7,35 @@
   </head>
   <body>
 
-    <div class="project-panel">
-      <div class="panel-header">Projects</div>
-      <div class="project-card">General</div>
-      <div class="project-card">Coding</div>
-      <div class="project-card">Exercise</div>
-      <div class="add-project">Add Project</div>
-    </div>
+    <header class="header-panel">
+      <img src="../icons/list.svg" alt="list logo">
+      <div class="header">Task Manager</div>
+    </header>
 
-    <div class="todo-container">
-      <div class="project-header">Project 1</div>
-      <div class="todo-list">
-        <div class="item-card">
-          <div class="item-title">Task 1</div>
-          <div class="item-duedate">Due date</div>
-          <div class="item-priority">High</div>
-          <div class="item-check"></div>
+    <main>
+      <nav class="side-panel">
+        <div class="side-panel-header">Project List</div>
+        <ul class="project-list"></ul>
+      </nav>
+
+      <div class="task-container">
+        <div class="project-header">Project 1</div>
+        <div class="task-list">
+          <div class="task-card">
+            <div class="check-box">
+              <div class="check-circle">
+                <img src="../icons/tick.svg" alt="tick-icon">
+              </div>
+            </div>
+            <div class="task-title">Task 1</div>
+            <div class="task-info">Info</div>
+            <div class="task-due">Due date</div>
+            <img class="delete-icon" src="../icons/delete.svg" alt="delete icon">
+          </div>
         </div>
+        <div class="add-task">Add Task</div>
       </div>
-      <div class="add-todo">Add Task</div>
-    </div>
+    </main>
 
     <script src="main.js"></script>
   </body>
