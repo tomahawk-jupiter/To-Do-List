@@ -1,3 +1,35 @@
-.test-div {
-  color: orange;
+:root {
+  /* put css variables here */
+}
+
+* {
+  border: solid 1px;
+}
+
+body {
+  display: flex;
+}
+
+.project-panel {
+  width: 25vw;
+  height: 100vh;
+}
+
+.todo-container {
+  width: 75vw;
+  height: 100vh;
+}
+
+.item-card {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 50px;
+}
+
+.item-check {
+  width: 20px;
+  height: 20px;
+  border: solid 1px;
+  border-radius: 50px;
 }
