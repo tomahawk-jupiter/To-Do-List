@@ -7,6 +7,7 @@ import {
   appendTaskToDOM
 } from './dom-methods';
 
+
 // ==== INIT PROJECT FROM DATA =========
 
 // APPEND PROJECT LIST FROM DATA
@@ -68,7 +69,7 @@ submitTaskBtn.addEventListener('click', (e)=> {
   const info = document.querySelector('#task-info').value;
   const due = document.querySelector('#task-due').value;
   const priority = document.querySelector('#task-priority').value;
-  console.log({name, info, due, priority});
+  //console.log({name, info, due, priority});
   if (!name) {
     alert('Please give the task a name.');
   } else {
@@ -84,12 +85,10 @@ closeTaskBtn.addEventListener('click', ()=> {
   taskForm.style.visibility = 'hidden';
 });
 
-
-
 // =========== end of new task ==============
 
 // === NOTES ===
-// ADD & REMOVE TASKs:
+// ADD & REMOVE TASKs FROM DATA STRUCTURE logic:
   // data.a.push({name: 'q', value: 78});
   // const removeIndex = data.a.findIndex(i => i.name === 'abc');
   // data.a.splice(removeIndex, 1);
@@ -100,8 +99,7 @@ closeTaskBtn.addEventListener('click', ()=> {
 // function that renders projects and tasks from saved arrays to DOM.
 
 // === PROJECT BREAKDOWN ===
-  // Project panel:
-    // delete button for project list
+
   // Task list:
     // tick box
     // task info button and display

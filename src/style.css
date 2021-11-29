@@ -34,6 +34,10 @@ main {
 .project-list li {
   display: flex;
 }
+.project-name {
+  cursor: pointer;
+  user-select: none;
+}
 
 .task-container {
   width: 75vw;
@@ -52,7 +56,7 @@ main {
   border: solid 1px;
   border-radius: 50px;
 }
-.task-title {
+.task-name {
   margin-right: auto;
 }
 .delete-icon {
