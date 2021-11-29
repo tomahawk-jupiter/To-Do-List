@@ -29,7 +29,7 @@ const updateCheckState = (projectName, id, checkState) => {
   data[projectName].map(i => {
     if (i.id === id) {
       i.check = checkState;
-      console.log(i.check);
+      //console.log(i.check);
     }
   });
 }
@@ -56,31 +56,57 @@ const appendTaskToDOM = (taskObj) => {
     : 'green';
   taskCard.style['background-color'] = color;
 
-  // tick the box when render from stored data
+  // tick the box when render tasks from stored data:
   if (taskObj.check) {
     checkCircle.innerHTML = tickHTML;
   }
-  // Handles click for tick box / circle:
+  // HANDLE CLICK EVENTS FOR TASK CARD:
   taskCard.addEventListener('click', (e)=> {
     const target = e.target;
+
+    // HANDLE INFO DISPLAY ON CLICK
+    if (target.classList.contains('task-info')) {
+      const id = e.path[1].id;
+      data[projectName].map(i => {
+        if (i.id === id) {
+          console.log(i.info);
+          // DISPLAY INFO
+        }
+      });
+    }
+
+  // HANDLE TICK BOX:
     const unChecked = target.classList.contains('check-circle');
     if (unChecked) {
+      //id = e.path[1].id;
+      const id = e.path[2].id;
       target.innerHTML = tickHTML;
       taskCard.style['background-color'] = '#aaaaff';
       updateCheckState(projectName, id, true);
     } else if (target.classList.contains('tick-img')) {
+      const id = e.path[3].id;
       target.remove();
       taskCard.style['background-color'] = color;
       updateCheckState(projectName, id, false);
     }
-  });
+
+    // HANDLE REMOVE TASKS
+    if (target.classList.contains('delete-task')) {
+      const taskCard = e.target.parentElement;
+      const id = taskCard.id;
+      taskCard.remove();
+      // REMOVE TASK FROM DATA STRUCTURE
+      data[projectName].map((task, index) => {
+        if (task.id  === id) {
+          data[projectName].splice(index, 1);
+          console.log(data[projectName]);
+        }
+      });
+    }
+
+  }); // addEventListener end
 
 
-  // HANDLE INFO DISPLAY ON CLICK
-  // color card based on priority
-    // green, yello, red
-
-    // return check state to index.js
-}
+} // appendTaskToDOM end
 
 export { appendTaskToDOM };

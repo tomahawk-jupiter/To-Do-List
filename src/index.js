@@ -31,13 +31,13 @@ submitTaskBtn.addEventListener('click', (e)=> {
   } else {
     const taskObj = factory(name, info, due, priority);
 
-    appendTaskToDOM(taskObj);
-    taskForm.style.visibility = 'hidden';
-
     // Add task to project in data structure:
     const projectName = projectHeader.innerText;
     data[projectName].push(taskObj);
     console.log(data);
+
+    appendTaskToDOM(taskObj);
+    taskForm.style.visibility = 'hidden';
   }
 });
 // ==== end of task form and event ====
