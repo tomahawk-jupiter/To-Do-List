@@ -42,28 +42,14 @@ submitTaskBtn.addEventListener('click', (e)=> {
 });
 // ==== end of task form and event ====
 
-// Handle delete task and checkbox =====
-// Put this in index.js form handling data
-// DELETE TASKS EVENT and function =============
-  // const tasksToDelete = document.querySelectorAll('.delete-task');
-  // const deleteTask = (e) => {
-  //   const element = e.target.parentElement;
-  //   // get the name of the card
-  //   const elementName = element.children[1].innerText;
-  //   element.remove();
-  //   // REMOVE TASK FROM DATA STRUCTURE:
-  //   //  current project ???
-  //   const removeIndex = data[currentProject].findIndex(i => {
-  //     return i.name === elementName;
-  //   });
-  //   data[currentProject].splice(removeIndex, 1);
-  // }
-  // tasksToDelete.forEach(i => {
-  //   i.removeEventListener('click', deleteTask);
-  //   i.addEventListener('click', deleteTask);
-  // });
-// ====== end delete tasks ==========
+// ==== PROJECT FORM ======
 
+// ==== INITIAL RENDER PROJECT AND TASK with a loop ====
+
+
+
+
+// OLDER CODE BELOW:
 
 // import {
 //   appendProjectToDom,

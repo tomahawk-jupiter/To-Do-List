@@ -1,3 +1,6 @@
+// Old module, delete after don't need any logic from it
+
+
 // import { data } from './data.js';
 //
 // let currentProject = 'General';
