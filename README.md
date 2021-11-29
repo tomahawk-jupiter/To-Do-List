@@ -2,7 +2,7 @@
 
 Webpack [Asset Management](https://webpack.js.org/guides/asset-management/)
 
-#### Help make page responsive
+
 
 Put this in the html head tags:
 
