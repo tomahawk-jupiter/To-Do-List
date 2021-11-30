@@ -22,3 +22,7 @@ Put this in the html head tags to make it display better on smaller screens:
 Put in head tags.
 
     <link rel="icon" href="../icons/list.svg">
+
+###### Focus Element
+
+    HTMLElement.focus()

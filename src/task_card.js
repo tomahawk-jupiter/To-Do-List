@@ -1,6 +1,6 @@
 import { data } from './data.js';
 
-// Construct task card html content:
+// CONSTRUCT TASK CARD HTML CONTENT:
 const createTaskHTML = (taskObj) => {
   const check = taskObj.check;
   const name = taskObj.name;
@@ -18,17 +18,18 @@ const createTaskHTML = (taskObj) => {
               src="../icons/delete.svg" alt="delete icon">`;
 }
 
-// Update task check state:
+
+// UPDATE TASK CHECK STATE:
 const updateCheckState = (projectName, id, checkState) => {
   data[projectName].map(i => {
     if (i.id === id) {
       i.check = checkState;
-      //console.log(i.check);
     }
   });
 }
 
-// Add task card to the DOM and add contents:
+
+// ADD TASK CARD TO DOM and add contents:
 const appendTaskToDOM = (taskObj) => {
   const projectHeader = document.querySelector('.project-header');
   const projectName = projectHeader.innerHTML;
@@ -57,38 +58,30 @@ const appendTaskToDOM = (taskObj) => {
   // HANDLE CLICK EVENTS FOR TASK CARD:
   taskCard.addEventListener('click', (e)=> {
     const target = e.target;
-
+    console.log('event!!!')
     // HANDLE INFO DISPLAY ON CLICK
     if (target.classList.contains('task-info')) {
       const display = document.querySelector('.info-display');
       const id = e.path[1].id;
 
       data[projectName].map(i => {
-
         if (i.id === id) {
-          // DISPLAY INFO
-          const visible = display.innerText === '' ? false
-            : true;
+          const visible = display.innerText === '' ? false : true;
           if (!visible) {
-            console.log('show!!!');
             display.innerText = i.info;
             display.setAttribute(
               'style', `visibility: visible;top: ${e.pageX};left: ${e.pageY};`
             );
           } else if (visible) {
-            console.log('hide!!!');
             display.innerText = '';
             display.setAttribute('style', 'visibility: hidden;');
           }
-
         }
       });
     }
-
   // HANDLE TICK BOX:
     const unChecked = target.classList.contains('check-circle');
     if (unChecked) {
-      //id = e.path[1].id;
       const id = e.path[2].id;
       target.innerHTML = tickHTML;
       taskCard.style['background-color'] = '#aaaaff';
@@ -105,6 +98,7 @@ const appendTaskToDOM = (taskObj) => {
       const taskCard = e.target.parentElement;
       const id = taskCard.id;
       taskCard.remove();
+
       // REMOVE TASK FROM DATA STRUCTURE
       data[projectName].map((task, index) => {
         if (task.id  === id) {
@@ -113,10 +107,7 @@ const appendTaskToDOM = (taskObj) => {
         }
       });
     }
-
   }); // addEventListener end
-
-
 } // appendTaskToDOM end
 
 export { appendTaskToDOM };
