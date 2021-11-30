@@ -1,10 +1,4 @@
 import { data } from './data.js';
-// TO DO
-  // box check
-    // to update check in the data currnent project needed
-    // try to pass check state to index.js and update data there
-
-  // display Info
 
 // Construct task card html content:
 const createTaskHTML = (taskObj) => {
@@ -66,11 +60,27 @@ const appendTaskToDOM = (taskObj) => {
 
     // HANDLE INFO DISPLAY ON CLICK
     if (target.classList.contains('task-info')) {
+      const display = document.querySelector('.info-display');
       const id = e.path[1].id;
+
       data[projectName].map(i => {
+
         if (i.id === id) {
-          console.log(i.info);
           // DISPLAY INFO
+          const visible = display.innerText === '' ? false
+            : true;
+          if (!visible) {
+            console.log('show!!!');
+            display.innerText = i.info;
+            display.setAttribute(
+              'style', `visibility: visible;top: ${e.pageX};left: ${e.pageY};`
+            );
+          } else if (visible) {
+            console.log('hide!!!');
+            display.innerText = '';
+            display.setAttribute('style', 'visibility: hidden;');
+          }
+
         }
       });
     }

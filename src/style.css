@@ -1,10 +1,11 @@
 :root {
   /* put css variables here */
   font-family: calibri, sans-serif;
+  user-select: none;
 }
 
 * {
-  /* border: solid 1px; */
+  border: solid 1px;
 }
 
 header {
@@ -58,6 +59,13 @@ main {
 }
 .task-name {
   margin-right: auto;
+}
+.info-display {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background-color: #aaa;
+  visibility: hidden;
 }
 .delete-icon {
   width: 20px;
@@ -119,6 +127,13 @@ main {
 .form-group-task {
   display: flex;
   flex-direction: column;
+}
+.date-group {
+  display: flex;
+  width: 200px;
+}
+.date-input {
+  width: 30%;
 }
 .task-btn-group {
   display: flex;

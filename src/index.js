@@ -2,6 +2,7 @@ import './style.css';
 import { factory } from './factory.js';
 import { data } from './data.js';
 import { appendTaskToDOM } from './task_card.js';
+import { format, compareAsc } from 'date-fns';
 
 // TASK ADDING FORM AND EVENTS
 const projectHeader = document.querySelector('.project-header');
@@ -23,18 +24,34 @@ submitTaskBtn.addEventListener('click', (e)=> {
   e.preventDefault();
   const name = document.querySelector('#task-name').value;
   const info = document.querySelector('#task-info').value;
-  const due = document.querySelector('#task-due').value;
+  const day = document.querySelector('#day-due').value;
+  const month = document.querySelector('#month-due').value;
+  const year = document.querySelector('#year-due').value;
+  console.log({day});
   const priority = document.querySelector('#task-priority').value;
 
   if (!name) {
     alert('Please give the task a name.');
   } else {
-    const taskObj = factory(name, info, due, priority);
+
+  // DEAL WITH Date
+    // Deal with invalid dates:
+    // Doesn't flag days with less than 31
+    if (day < 1 || day > 31) {
+      alert('Invalid Day');
+    } else if (month < 1 || month > 12) {
+      alert('Invalid Month');
+    } else if (year < new Date().getFullYear()) {
+      alert('Deadline passed already!')
+    }
+
+    const formattedDate = format(
+      new Date(year, month - 1, day), 'EEE do LLL yy');
+    const taskObj = factory(name, info, formattedDate, priority);
 
     // Add task to project in data structure:
     const projectName = projectHeader.innerText;
     data[projectName].push(taskObj);
-    console.log(data);
 
     appendTaskToDOM(taskObj);
     taskForm.style.visibility = 'hidden';
@@ -45,7 +62,24 @@ submitTaskBtn.addEventListener('click', (e)=> {
 // ==== PROJECT FORM ======
 
 // ==== INITIAL RENDER PROJECT AND TASK with a loop ====
+// Below example of ordering dates, render tasks by due date.
 
+// import { format, compareAsc } from 'date-fns'
+//
+// format(new Date(2014, 1, 11), 'MM/dd/yyyy')
+// //=> '02/11/2014'
+//
+// const dates = [
+//   new Date(1995, 6, 2),
+//   new Date(1987, 1, 11),
+//   new Date(1989, 6, 10),
+// ]
+// dates.sort(compareAsc)
+// //=> [
+// //   Wed Feb 11 1987 00:00:00,
+// //   Mon Jul 10 1989 00:00:00,
+// //   Sun Jul 02 1995 00:00:00
+// // ]
 
 
 
