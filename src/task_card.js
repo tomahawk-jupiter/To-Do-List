@@ -1,5 +1,9 @@
 import { data } from './data.js';
 
+// CHECK BOX (CIRCLE) TICK:
+const tickHTML = `<img class="tick-img"
+  src="../icons/tick.svg" alt="tick-icon">`;
+
 // CONSTRUCT TASK CARD HTML CONTENT:
 const createTaskHTML = (taskObj) => {
   const check = taskObj.check;
@@ -7,9 +11,16 @@ const createTaskHTML = (taskObj) => {
   const info = taskObj.info;
   const due = taskObj.due;
   const priority = taskObj.priority;
+  let tick;
+
+  if (check) {
+    tick = tickHTML;
+  } else {
+    tick = '';
+  }
 
   return `<div class="check-box">
-            <div class="check-circle"></div>
+            <div class="check-circle">${tick}</div>
           </div>
           <div class="task-name">${name}</div>
           <div class="task-info">Info</div>
@@ -39,7 +50,6 @@ const appendTaskToDOM = (taskObj) => {
   const checkCircle = document.querySelector('.check-circle');
   const id = taskObj.id;
 
-  const tickHTML = `<img class="tick-img" src="../icons/tick.svg" alt="tick-icon">`;
   taskCard.setAttribute('class', 'task-card');
   taskCard.setAttribute('id', id);
   taskCard.innerHTML = taskHTML;
@@ -51,14 +61,14 @@ const appendTaskToDOM = (taskObj) => {
     : 'green';
   taskCard.style['background-color'] = color;
 
-  // tick the box when render tasks from stored data:
   if (taskObj.check) {
-    checkCircle.innerHTML = tickHTML;
+    taskCard.style['background-color'] = '#aaaaff';
   }
+
+
   // HANDLE CLICK EVENTS FOR TASK CARD:
   taskCard.addEventListener('click', (e)=> {
     const target = e.target;
-    console.log('event!!!')
     // HANDLE INFO DISPLAY ON CLICK
     if (target.classList.contains('task-info')) {
       const display = document.querySelector('.info-display');
@@ -70,7 +80,8 @@ const appendTaskToDOM = (taskObj) => {
           if (!visible) {
             display.innerText = i.info;
             display.setAttribute(
-              'style', `visibility: visible;top: ${e.pageX};left: ${e.pageY};`
+              // 'style', `visibility: visible;top: ${e.pageX};left: ${e.pageY};`
+              'style', `visibility: visible;margin:auto;width:200px;height:100px;`
             );
           } else if (visible) {
             display.innerText = '';

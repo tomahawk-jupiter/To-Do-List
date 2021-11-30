@@ -62,9 +62,10 @@ main {
 }
 .info-display {
   position: fixed;
-  width: 200px;
+  /* width: 200px;
   height: 200px;
-  background-color: #aaa;
+  Set inline in task_card.js*/
+  background-color: white;
   visibility: hidden;
 }
 .delete-icon {

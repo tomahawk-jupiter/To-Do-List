@@ -2,7 +2,9 @@ import { data } from './data.js';
 
 const projectList = document.querySelector('.project-list');
 const deleteBtn = document.querySelector('.delete-project');
+const taskList = document.querySelector('.task-list');
 
+// REMOVE PROJECT AND TASKS FROM DOM AND DATA:
 const deleteEvent = (e) => {
   if (e.target.classList.contains('delete-project')) {
     const confirmDelete = confirm(
@@ -16,6 +18,7 @@ const deleteEvent = (e) => {
         currentProject.innerText = 'Select a project...'
       }
       projectElement.remove();
+      taskList.replaceChildren();
       delete data[projectName];
     }
   }
@@ -28,6 +31,7 @@ const appendProjectToDom = (projectName) => {
                               <img class="delete-icon delete-project"
                                 src="../icons/delete.svg">`;
   projectList.appendChild(projectElement);
+  taskList.replaceChildren();
 }
 
 projectList.addEventListener('click', deleteEvent);

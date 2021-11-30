@@ -97,20 +97,25 @@ submitProjectBtn.addEventListener('click', (e)=> {
 
 
 // SELECT A PROJECT EVENT
-// const projectList = document.querySelector('.project-list');
-//
-// projectList.addEventListener('click', (e)=> {
-//   if (e.target.classList.contains('project-name')) {
-//     const project = e.target.innerText;
-//     projectHeader.innerText = project;
-//
-//     const taskArray = data[project];
-//     console.log({project});
-//     console.log('Task array:');
-//     console.log(taskArray);
-//   }
-// });
-// console.log(data['General']);
+const projectList = document.querySelector('.project-list');
+
+projectList.addEventListener('click', (e)=> {
+  if (e.target.classList.contains('project-name')) {
+    const taskList = document.querySelector('.task-list');
+    const project = e.target.innerText;
+    const taskArray = data[project];
+
+    // SET PROJECT HEADER:
+    projectHeader.innerText = project;
+    // CLEAR THE PREVIOUSLY SELECTED TASKS:
+    taskList.replaceChildren();
+    // RENDER THE TASK LIST TO DOM:
+     taskArray.forEach(task => {
+       appendTaskToDOM(task);
+     });
+  }
+});
+
 
 
   // RENDER TASKS FROM PROJECTS TASK ARRAY
