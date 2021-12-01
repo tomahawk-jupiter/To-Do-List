@@ -1,18 +1,16 @@
 :root {
-  /* put css variables here */
   font-family: calibri, sans-serif;
   user-select: none;
+  --form-color: #dde8ed;
 }
 
-* {
-  /* border: solid 1px; */
-}
 
 header {
-  /* height: 40px; */
   display: flex;
   align-items: center;
   border-bottom: solid 2px;
+  padding-bottom: 10px;
+  min-width: 600px;
 }
 header .header {
   margin: 5px 0px;
@@ -24,6 +22,7 @@ header img {
   margin: 0px 20px 0px 5px;
 }
 
+
 main {
   display: flex;
 }
@@ -31,20 +30,48 @@ main {
 .side-panel {
   width: 25vw;
   height: 100vh;
-  border-right: solid 2px;
-  /* grid-row: 2/3; */
+  min-width: 150px;
 }
-.project-list li {
+.side-panel-header {
+  margin: 5px 0px 0px 5px;
+}
+.project-item {
   display: flex;
+  margin-bottom: 8px;
 }
 .project-name {
   cursor: pointer;
   user-select: none;
+  margin: 0px;
 }
+
 
 .task-container {
   width: 75vw;
-  height: 100vh;
+  height: 100%;
+  min-width: 450px;
+  border-left: solid 2px;
+}
+.project-header {
+  margin: 5px 0px 15px 5px;
+}
+.task-name, .task-info, .task-due, .delete-icon {
+  margin: 0px 5px;
+}
+.check-box {
+  margin: 0px 5px 0px 20px;
+}
+.task-info {
+  border: solid 1px;
+  padding: 2px;
+  border-radius: 5px;
+}
+.task-info:hover {
+  background-color: #ffffff;
+  color: 000000px;
+}
+.delete-icon {
+  margin: 0px 15px;
 }
 .task-card {
   height: 50px;
@@ -52,29 +79,51 @@ main {
   justify-content: space-between;
   align-items: center;
   margin: 10px 50px;
+  border: solid 2px;
+  border-radius: 8px;
 }
 .check-circle {
   width: 20px;
   height: 20px;
   border: solid 1px;
   border-radius: 50px;
+  cursor: pointer;
 }
 .task-name {
   margin-right: auto;
 }
+.task-info {
+  cursor: pointer;
+}
 .info-display {
   position: fixed;
-  /* width: 200px;
-  height: 200px;
-  Set inline in task_card.js*/
-  background-color: white;
+  background-color: var(--form-color);
   visibility: hidden;
+  border: solid 2px;
+  border-radius: 8px;
+  padding: 15px;
+  margin:auto;
+  width:200px;
+  min-height:100px
+}
+.info-display h4 {
+  margin: 0px 0px 15px 0px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px;
+}
+.info-display div {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+.close-info {
+  margin-top: 10px;
 }
 .delete-icon {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
+
 
 .add-btn {
   color: green;
@@ -86,18 +135,23 @@ main {
   color: orange;
 }
 
+
 #add-project-btn {
   cursor: pointer;
   user-select: none;
 }
 .project-form {
   visibility: hidden;
-  background-color: white;
+  background-color: var(--form-color);
   position: fixed;
   left: 200px;
   top: 100px;
   border: solid 2px;
-  border-radius: 5px;
+  border-radius: 12px;
+  padding: 5px 10px;
+}
+.project-form label {
+  margin-right: 10px;
 }
 .project-form h4 {
   margin: 0;
@@ -112,20 +166,32 @@ main {
   padding: 5px 5px;
 }
 
+
 #add-task-btn {
   cursor: pointer;
   user-select: none;
 }
 .task-form {
   visibility: hidden;
-  background-color: white;
+  background-color: var(--form-color);
   position: fixed;
   right: 200px;
   top: 100px;
   border: solid 2px;
-  border-radius: 5px;
-  height: 275px;
-  padding: 0px 5px;
+  border-radius: 12px;
+  height: 285px;
+  padding: 0px 15px;
+}
+.task-form input {
+  margin: 2px 0px 4px 0px;
+}
+.task-form h4 {
+  border-bottom: solid 1px;
+  padding-bottom: 5px;
+  margin: 10px 0px;
+}
+.task-form textarea {
+  resize: none;
 }
 .form-group-task {
   display: flex;

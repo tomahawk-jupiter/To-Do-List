@@ -26,3 +26,17 @@ Put in head tags.
 ###### Focus Element
 
     HTMLElement.focus()
+
+###### Preserve line breaks...
+
+...from user input. Put the CSS on the element receiving the text:
+
+    white-space: pre-wrap;
+    white-space: pre-line;
+    white-space: pre;
+
+###### Wrap text...
+
+...if word too long to fit within the element
+
+    overflow-wrap: break-word;

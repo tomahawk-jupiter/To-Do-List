@@ -27,7 +27,7 @@ const deleteEvent = (e) => {
 const appendProjectToDom = (projectName) => {
   const projectElement = document.createElement('li');
   projectElement.setAttribute('class', 'project-item');
-  projectElement.innerHTML = `<div class="project-name">${projectName}</div>
+  projectElement.innerHTML = `<h4 class="project-name">${projectName}</h4>
                               <img class="delete-icon delete-project"
                                 src="../icons/delete.svg">`;
   projectList.appendChild(projectElement);

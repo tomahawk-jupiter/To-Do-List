@@ -20,7 +20,7 @@ const data = {
       id: 'Test2',
       name: 'Test 2',
       check: true,
-      info: 'Test medium priority.',
+      info: 'Test high priority.',
       due: 'fri 5th Nov 21',
       priority: 'high'
     }

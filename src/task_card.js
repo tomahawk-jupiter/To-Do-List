@@ -1,12 +1,12 @@
 import { data } from './data.js';
 
 // Colors for priority:
-const lowColor = 'green';
-const medColor = 'orange';
-const highColor = 'red';
-const completedColor = '#ddd';
+const lowColor = '#96d0db';
+const medColor = '#49a8c7';
+const highColor = '#118cd9';
+const completedColor = '#cce4e9';
 // Display info btn color;
-const infoOn = 'white';
+const infoOn = '#444444';
 const infoOff = 'black';
 
 // CHECK BOX (CIRCLE) TICK:
@@ -31,7 +31,7 @@ const createTaskHTML = (taskObj) => {
   return `<div class="check-box">
             <div class="check-circle">${tick}</div>
           </div>
-          <div class="task-name">${name}</div>
+          <h5 class="task-name">${name}</h5>
           <div class="task-info">Info</div>
           <div class="task-due">${due}</div>
           <img class="delete-icon delete-task"
@@ -39,7 +39,7 @@ const createTaskHTML = (taskObj) => {
 }
 
 
-// UPDATE TASK CHECK STATE:
+// UPDATE TASK TICK STATE:
 const updateCheckState = (projectName, id, checkState) => {
   data[projectName].map(i => {
     if (i.id === id) {
@@ -90,15 +90,15 @@ const appendTaskToDOM = (taskObj) => {
           if (!visible) {
             display.innerText = i.info;
             display.innerHTML = `<h4>Info</h4>
-                                 <div>${i.info}</div>`;
-            display.setAttribute(
-              'style', `visibility: visible;margin:auto;width:200px;height:100px;`
-            );
+                                 <div>${i.info}</div>
+                                 <button class="close-info">Close</button>`;
+
+            display.style.visibility = 'visible';
             target.style.color = infoOn;
-          } else if (visible) {
-            display.innerText = '';
-            display.setAttribute('style', 'visibility: hidden;');
-            target.style.color = infoOff;
+            const closeInfo = document.querySelector('.close-info');
+            closeInfo.addEventListener('click', ()=> {
+              display.style.visibility = 'hidden';
+            });
           }
         }
       });
