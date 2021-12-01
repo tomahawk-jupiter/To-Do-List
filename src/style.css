@@ -5,13 +5,14 @@
 }
 
 * {
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 
 header {
   /* height: 40px; */
   display: flex;
   align-items: center;
+  border-bottom: solid 2px;
 }
 header .header {
   margin: 5px 0px;
@@ -30,6 +31,7 @@ main {
 .side-panel {
   width: 25vw;
   height: 100vh;
+  border-right: solid 2px;
   /* grid-row: 2/3; */
 }
 .project-list li {

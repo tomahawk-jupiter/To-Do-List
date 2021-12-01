@@ -116,115 +116,18 @@ projectList.addEventListener('click', (e)=> {
   }
 });
 
+// INIT FROM DATA.JS
+const projectArray = Object.keys(data);
+const project = projectArray[0];
+const taskArray = data[project];
 
-
-  // RENDER TASKS FROM PROJECTS TASK ARRAY
-    // IN >>> project Name > from click on project name
-    // IN >>> data structure
-    // OUT >>> change HEADER
-    // OUT >>> render tasks for that project
-    // NEEDS >>> appendProjectToDom()
-
-// ==== INITIAL RENDER PROJECT AND TASK with a loop ====
-// ()=> Render from data INIT
-
-// Below example of ordering dates, render tasks by due date.
-
-// import { format, compareAsc } from 'date-fns'
-//
-// format(new Date(2014, 1, 11), 'MM/dd/yyyy')
-// //=> '02/11/2014'
-//
-// const dates = [
-//   new Date(1995, 6, 2),
-//   new Date(1987, 1, 11),
-//   new Date(1989, 6, 10),
-// ]
-// dates.sort(compareAsc)
-// //=> [
-// //   Wed Feb 11 1987 00:00:00,
-// //   Mon Jul 10 1989 00:00:00,
-// //   Sun Jul 02 1995 00:00:00
-// // ]
-
-
-
-// OLDER CODE BELOW:
-
-// import {
-//   appendProjectToDom,
-//   taskContent,
-//   appendTaskToDOM
-// } from './dom-methods';
-//
-//
-// // ==== INIT PROJECT FROM DATA =========
-//
-// // APPEND PROJECT LIST FROM DATA
-// const projects = Object.keys(data);
-// const defaultProject = projects[0];
-// projects.forEach(i => appendProjectToDom(i));
-//
-// // APPEND TASK LIST FOR DEFAULT PROJECT
-// const defaultTaskArray = data[defaultProject];
-// defaultTaskArray.forEach(i => {
-//   //console.log(i);
-//   const taskHTML = taskContent(i);
-//   appendTaskToDOM(taskHTML);
-// });
-//
-// // ==== end of init =========
-//
-// // ==== PROJECT FORM HANDLING ====
-//   // NOTE - need to append to data structure too
-// const addProjectBtn = document.querySelector('#add-project-btn');
-// const projectForm = document.querySelector('.project-form');
-// const submitProjectBtn = document.querySelector('#submit-project-form');
-// const closeProjectForm = document.querySelector('#close-project-form');
-//
-// addProjectBtn.addEventListener('click', ()=> {
-//   projectForm.style.visibility = 'visible';
-//   projectForm.reset();
-// });
-//
-// submitProjectBtn.addEventListener('click', (e)=> {
-//   e.preventDefault();
-//   const projectInput = projectForm.querySelector('#form-p-name');
-//   if (!projectInput.value) {
-//     alert('Please give project a name.');
-//   } else {
-//     appendProjectToDom(projectInput.value);
-//     projectForm.style.visibility = 'hidden';
-//   }
-// });
-//
-// closeProjectForm.addEventListener('click', ()=> {
-//   projectForm.style.visibility = 'hidden';
-// });
-
-// // TASK FORM EVENT HANDLING ==========
-// =========== end of new task ==============
-
-// === NOTES ===
-// ADD & REMOVE TASKs FROM DATA STRUCTURE logic:
-  // data.a.push({name: 'q', value: 78});
-  // const removeIndex = data.a.findIndex(i => i.name === 'abc');
-  // data.a.splice(removeIndex, 1);
-// ADD PROJECT to data:
-  // data['Gym'] = [];
-  //console.log(data);
-
-// function that renders projects and tasks from saved arrays to DOM.
-
-// === PROJECT BREAKDOWN ===
-
-  // Task list:
-    // tick box
-    // task info button and display
-    // priority color card
-    // date formatter library
-  // Data structure update
-  // user local storage
-    // render from storage on init
-
-// TIP - look at library project for ideas.
+// ADD PROJECTS TO SIDE PANEL:
+projectArray.forEach(project => {
+  appendProjectToDom(project);
+});
+// SET TASK LIST HEADER:
+projectHeader.innerText = project;
+// ADD TASKS TO TASK LIST:
+taskArray.forEach(task => {
+  appendTaskToDOM(task);
+});

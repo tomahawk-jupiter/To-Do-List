@@ -1,5 +1,14 @@
 import { data } from './data.js';
 
+// Colors for priority:
+const lowColor = 'green';
+const medColor = 'orange';
+const highColor = 'red';
+const completedColor = '#ddd';
+// Display info btn color;
+const infoOn = 'white';
+const infoOff = 'black';
+
 // CHECK BOX (CIRCLE) TICK:
 const tickHTML = `<img class="tick-img"
   src="../icons/tick.svg" alt="tick-icon">`;
@@ -56,19 +65,20 @@ const appendTaskToDOM = (taskObj) => {
   taskList.appendChild(taskCard);
 
   const priorityLevel = taskObj.priority;
-  const color = priorityLevel === 'high' ? 'red'
-    : priorityLevel === 'medium' ? 'orange'
-    : 'green';
+  const color = priorityLevel === 'high' ? highColor
+    : priorityLevel === 'medium' ? medColor
+    : lowColor;
   taskCard.style['background-color'] = color;
 
   if (taskObj.check) {
-    taskCard.style['background-color'] = '#aaaaff';
+    taskCard.style['background-color'] = completedColor;
   }
 
 
   // HANDLE CLICK EVENTS FOR TASK CARD:
   taskCard.addEventListener('click', (e)=> {
     const target = e.target;
+
     // HANDLE INFO DISPLAY ON CLICK
     if (target.classList.contains('task-info')) {
       const display = document.querySelector('.info-display');
@@ -79,23 +89,27 @@ const appendTaskToDOM = (taskObj) => {
           const visible = display.innerText === '' ? false : true;
           if (!visible) {
             display.innerText = i.info;
+            display.innerHTML = `<h4>Info</h4>
+                                 <div>${i.info}</div>`;
             display.setAttribute(
-              // 'style', `visibility: visible;top: ${e.pageX};left: ${e.pageY};`
               'style', `visibility: visible;margin:auto;width:200px;height:100px;`
             );
+            target.style.color = infoOn;
           } else if (visible) {
             display.innerText = '';
             display.setAttribute('style', 'visibility: hidden;');
+            target.style.color = infoOff;
           }
         }
       });
     }
+
   // HANDLE TICK BOX:
     const unChecked = target.classList.contains('check-circle');
     if (unChecked) {
       const id = e.path[2].id;
       target.innerHTML = tickHTML;
-      taskCard.style['background-color'] = '#aaaaff';
+      taskCard.style['background-color'] = completedColor;
       updateCheckState(projectName, id, true);
     } else if (target.classList.contains('tick-img')) {
       const id = e.path[3].id;
