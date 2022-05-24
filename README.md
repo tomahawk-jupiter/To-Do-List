@@ -2,6 +2,8 @@
 
 A To-do list using Vanilla JavaScript and bundled with Webpack. For practicing seperating code into modules.
 
+[Live Demo](https://tomahawk-jupiter.github.io/To-Do-List/)
+
 ## Contents
 
 - [Dependency Documentaion Links](#dependency-documentaion-links)
