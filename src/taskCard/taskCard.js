@@ -1,5 +1,6 @@
 import { data } from "../data.js";
 import { createTaskCard } from "./createTaskCard.js";
+import TickIcon from "../icons/tick.svg";
 
 // Colors for priority level
 const lowColor = "#96d0db";
@@ -104,7 +105,7 @@ const appendTaskToDOM = (taskObj) => {
 
       const tickIconImg = document.createElement("img");
       tickIconImg.setAttribute("class", "tick-img");
-      tickIconImg.setAttribute("src", "../src/icons/tick.svg");
+      tickIconImg.setAttribute("src", TickIcon);
       tickIconImg.setAttribute("alt", "tick icon");
 
       target.appendChild(tickIconImg);

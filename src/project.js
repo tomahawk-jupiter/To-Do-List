@@ -1,4 +1,5 @@
 import { data } from "./data.js";
+import DelIcon from "./icons/delete.svg";
 
 const projectList = document.querySelector(".project-list");
 const taskList = document.querySelector(".task-list");
@@ -34,7 +35,7 @@ const appendProjectToDom = (projectName) => {
 
   const deleteIconImg = document.createElement("img");
   deleteIconImg.setAttribute("class", "delete-icon delete-project");
-  deleteIconImg.setAttribute("src", "../src/icons/delete.svg");
+  deleteIconImg.setAttribute("src", DelIcon);
 
   projectElement.appendChild(projectNameH4);
   projectElement.appendChild(deleteIconImg);
