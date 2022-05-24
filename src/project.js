@@ -34,7 +34,7 @@ const appendProjectToDom = (projectName) => {
 
   const deleteIconImg = document.createElement("img");
   deleteIconImg.setAttribute("class", "delete-icon delete-project");
-  deleteIconImg.setAttribute("src", "../icons/delete.svg");
+  deleteIconImg.setAttribute("src", "../src/icons/delete.svg");
 
   projectElement.appendChild(projectNameH4);
   projectElement.appendChild(deleteIconImg);

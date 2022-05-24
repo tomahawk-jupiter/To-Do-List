@@ -104,7 +104,7 @@ const appendTaskToDOM = (taskObj) => {
 
       const tickIconImg = document.createElement("img");
       tickIconImg.setAttribute("class", "tick-img");
-      tickIconImg.setAttribute("src", "../icons/tick.svg");
+      tickIconImg.setAttribute("src", "../src/icons/tick.svg");
       tickIconImg.setAttribute("alt", "tick icon");
 
       target.appendChild(tickIconImg);

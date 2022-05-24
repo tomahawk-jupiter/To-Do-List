@@ -21,7 +21,7 @@ const createTaskCard = (taskObj) => {
     // Tick icon image added if check is true
     const tickIconImg = document.createElement("img");
     tickIconImg.setAttribute("class", "tick-img");
-    tickIconImg.setAttribute("src", "../icons/tick.svg");
+    tickIconImg.setAttribute("src", "../src/icons/tick.svg");
     tickIconImg.setAttribute("alt", "tick icon");
     checkBoxInnerCircle.appendChild(tickIconImg);
   }
@@ -40,7 +40,7 @@ const createTaskCard = (taskObj) => {
   taskDueDiv.innerText = due;
 
   const deleteIconImg = document.createElement("img");
-  deleteIconImg.setAttribute("src", "../icons/delete.svg");
+  deleteIconImg.setAttribute("src", "../src/icons/delete.svg");
   deleteIconImg.setAttribute("alt", "delete icon");
   // Can two classes be added like this ????
   deleteIconImg.setAttribute("class", "delete-icon delete-task");
