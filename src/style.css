@@ -1,9 +1,33 @@
 :root {
-  font-family: calibri, sans-serif;
+  font-family: arial, sans-serif;
   user-select: none;
   --form-color: #dde8ed;
 }
 
+input,
+textarea {
+  border: solid 1px;
+  outline: none;
+  padding: 0.5rem;
+}
+
+input[type="number"] {
+  padding: 0.25rem;
+}
+
+button {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background-color: #1f83bf;
+  color: white;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #1f83bfdd;
+}
 
 header {
   display: flex;
@@ -17,11 +41,8 @@ header .header {
   font-size: 40px;
 }
 header img {
-  /* width: 20px;
-  height: 20px; */
   margin: 0px 20px 0px 5px;
 }
-
 
 main {
   display: flex;
@@ -45,7 +66,6 @@ main {
   margin: 0px;
 }
 
-
 .task-container {
   width: 75vw;
   height: 100%;
@@ -55,20 +75,28 @@ main {
 .project-header {
   margin: 5px 0px 15px 5px;
 }
-.task-name, .task-info, .task-due, .delete-icon {
+.task-name,
+.task-info,
+.task-due,
+.delete-icon {
   margin: 0px 5px;
 }
 .check-box {
   margin: 0px 5px 0px 20px;
 }
 .task-info {
-  border: solid 1px;
-  padding: 2px;
+  /* border: solid 1px; */
+  padding: 0.1rem;
   border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.8rem;
 }
 .task-info:hover {
-  background-color: #ffffff;
-  color: 000000px;
+  background-color: #ddd;
+}
+.task-due {
+  min-width: 120px;
+  font-size: 0.8rem;
 }
 .delete-icon {
   margin: 0px 15px;
@@ -102,9 +130,9 @@ main {
   border: solid 2px;
   border-radius: 8px;
   padding: 15px;
-  margin:auto;
-  width:200px;
-  min-height:100px
+  margin: auto;
+  width: 200px;
+  min-height: 100px;
 }
 .info-display h4 {
   margin: 0px 0px 15px 0px;
@@ -123,7 +151,9 @@ main {
   height: 20px;
   cursor: pointer;
 }
-
+.delete-icon:hover {
+  fill: orange;
+}
 
 .add-btn {
   color: green;
@@ -134,7 +164,6 @@ main {
 .add-btn:hover {
   color: orange;
 }
-
 
 #add-project-btn {
   cursor: pointer;
@@ -166,7 +195,6 @@ main {
   padding: 5px 5px;
 }
 
-
 #add-task-btn {
   cursor: pointer;
   user-select: none;
@@ -179,8 +207,12 @@ main {
   top: 100px;
   border: solid 2px;
   border-radius: 12px;
-  height: 285px;
-  padding: 0px 15px;
+  padding: 0 1rem;
+}
+.form-btn-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .task-form input {
   margin: 2px 0px 4px 0px;
